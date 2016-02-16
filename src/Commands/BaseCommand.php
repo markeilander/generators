@@ -4,7 +4,7 @@ namespace Eilander\Generators\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Illuminate\Foundation\Composer;
+use Illuminate\Support\Composer;
 use Eilander\Generators\Migrations\NameParser;
 
 abstract class BaseCommand extends Command
