@@ -1,0 +1,21 @@
+{
+  "name": "eilander/generators",
+  "description": "Extend Laravel 5's generators.",
+  "keywords": ["laravel", "generators", "scaffold" , "laravel5"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mark Eilander",
+      "email": "mark.eilander@outlook.com"
+    }
+  ],
+  "require": {
+      "php": ">=5.5.9",
+      "laravel/framework": "5.1.*|5.2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Eilander\\Generators\\": "src/"
+    }
+  }
+}
