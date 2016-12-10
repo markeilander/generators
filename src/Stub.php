@@ -1,7 +1,9 @@
-<?php namespace Eilander\Generators;
+<?php
+
+namespace Eilander\Generators;
+
 /**
- * Class Stub
- * @package Eilander\Repository\Generators
+ * Class Stub.
  */
 class Stub
 {
@@ -18,22 +20,23 @@ class Stub
      */
     protected $replaces = [];
     /**
-     * replacement start string
+     * replacement start string.
      *
      * @var string
      */
     protected $replacementStart;
     /**
-     * replacement end string
+     * replacement end string.
      *
      * @var string
      */
     protected $replacementEnd;
+
     /**
      * The contructor.
      *
      * @param string $path
-     * @param array $replaces
+     * @param array  $replaces
      */
     public function __construct($path, array $replaces = [], $replacementStart = '{{', $replacementEnd = '}}')
     {
@@ -42,6 +45,7 @@ class Stub
         $this->replacementStart = $replacementStart;
         $this->replacementEnd = $replacementEnd;
     }
+
     /**
      * Get stub contents.
      *
@@ -50,12 +54,13 @@ class Stub
     public function getContents()
     {
         $contents = file_get_contents($this->path);
-        foreach ($this->replaces as $search => $replace)
-        {
-            $contents = str_replace($this->replacementStart . $search . $this->replacementEnd, $replace, $contents);
+        foreach ($this->replaces as $search => $replace) {
+            $contents = str_replace($this->replacementStart.$search.$this->replacementEnd, $replace, $contents);
         }
+
         return $contents;
     }
+
     /**
      * Get stub contents.
      *

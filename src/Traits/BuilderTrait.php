@@ -7,6 +7,7 @@ use Eilander\Generators\GeneratorException;
 trait BuilderTrait
 {
     protected $template;
+
     /**
      * Store the given template, to be inserted somewhere.
      *
@@ -42,7 +43,7 @@ trait BuilderTrait
      *
      * @return string
      */
-    protected function stub($type = 'view', $path)
+    protected function stub($type, $path)
     {
         if (trim($this->getPackagePath()) != '') {
             $stubPath = null;
@@ -76,7 +77,7 @@ trait BuilderTrait
      *
      * @return string
      */
-    protected function wrapper($type = 'view', $path)
+    protected function wrapper($type, $path)
     {
         $stubPath = $this->stub($type, $path);
         // check if file exists en retrieve contents
@@ -86,10 +87,10 @@ trait BuilderTrait
     }
 
     /**
-     * Get correct package path for stubs eo
+     * Get correct package path for stubs eo.
      */
     protected function getPackagePath()
     {
-        return realpath(__DIR__ . '/../');
+        return realpath(__DIR__.'/../');
     }
 }

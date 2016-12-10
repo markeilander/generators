@@ -2,10 +2,9 @@
 
 namespace Eilander\Generators\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Composer;
 use Eilander\Generators\Migrations\NameParser;
+use Illuminate\Console\Command;
+use Illuminate\Support\Composer;
 
 abstract class BaseCommand extends Command
 {
@@ -18,7 +17,7 @@ abstract class BaseCommand extends Command
      * @var NameParser
      */
     protected $nameParser;
-    
+
     /**
      * List with parsed names.
      *
@@ -40,12 +39,12 @@ abstract class BaseCommand extends Command
         $this->names = null;
     }
 
-
     protected function getNameParser()
     {
         if (!$this->nameParser) {
-           $this->nameParser = new NameParser($this->argument('name'));
+            $this->nameParser = new NameParser($this->argument('name'));
         }
+
         return $this->nameParser;
     }
 
@@ -53,6 +52,7 @@ abstract class BaseCommand extends Command
      * Generate names.
      *
      * @param string $config
+     *
      * @return mixed
      */
     protected function getNames($config = 'Name')
