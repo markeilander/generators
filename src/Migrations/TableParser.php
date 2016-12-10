@@ -5,7 +5,7 @@ namespace Eilander\Generators\Migrations;
 class TableParser
 {
     /**
-     * The parsed schema table
+     * The parsed schema table.
      *
      * @var array
      */
@@ -18,7 +18,7 @@ class TableParser
     private $schema = [];
 
     /**
-     * List of reserved fields
+     * List of reserved fields.
      *
      * @var array
      */
@@ -42,11 +42,12 @@ class TableParser
                 }
             }
         }
+
         return $this->schema;
     }
 
     /**
-     * Check if table exists
+     * Check if table exists.
      *
      * @param string $table
      *
@@ -54,10 +55,10 @@ class TableParser
      */
     public function exists($table)
     {
-        if (\Schema::hasTable($table))
-        {
+        if (\Schema::hasTable($table)) {
             return true;
         }
+
         return false;
     }
 
@@ -88,14 +89,16 @@ class TableParser
         $type = $this->parseType($field->Type);
 
         if ($this->reservedField($name)) {
-            return null;
+            return;
         }
+
         return compact('name', 'type');
     }
 
     private function parseType($type)
     {
         $type = preg_replace('/[^a-zA-Z]/', '', $type);
+
         return $type;
     }
 
@@ -104,6 +107,7 @@ class TableParser
         if (in_array($field, $this->reservedFields)) {
             return true;
         }
+
         return false;
     }
 }

@@ -1,9 +1,12 @@
-<?php namespace Eilander\Generators\Migrations;
+<?php
+
+namespace Eilander\Generators\Migrations;
+
 /**
- * Class NameParser
- * @package Eilander\Repository\Generators\Migrations
+ * Class NameParser.
  */
-class NameParser {
+class NameParser
+{
     /**
      * The migration name.
      *
@@ -28,6 +31,7 @@ class NameParser {
         $this->name = $name;
         $this->names = null;
     }
+
     /**
      * Get original migration name.
      *
@@ -43,9 +47,9 @@ class NameParser {
      *
      * @param string $config
      *
-     * @return mixed
-     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getNames($config = 'Name')
     {
@@ -58,8 +62,8 @@ class NameParser {
 
         if (!isset($this->names[$config])) {
             throw new \Exception('Position name is not found');
-        };
+        }
 
         return $this->names[$config];
     }
-  }
+}

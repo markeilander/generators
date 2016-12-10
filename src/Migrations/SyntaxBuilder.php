@@ -21,9 +21,9 @@ class SyntaxBuilder
      * @param array  $meta
      * @param string $type
      *
-     * @return string
-     *
      * @throws GeneratorException
+     *
+     * @return string
      */
     public function create($schema, $meta, $type = 'migration')
     {
@@ -92,9 +92,9 @@ class SyntaxBuilder
             $syntax = $this->insert($meta['var_name'])->into($syntax, 'class');
             $syntax = $this->insert(strtolower($field['name']))->into($syntax, 'field');
             // Fields to show view
-       } else {
+        } else {
             // Fields to controller
-            $syntax = sprintf("\$%s->%s = \$request->input(\"%s", $meta['var_name'], $field['name'], $field['name']);
+            $syntax = sprintf('$%s->%s = $request->input("%s', $meta['var_name'], $field['name'], $field['name']);
             $syntax .= '");';
         }
 
@@ -138,7 +138,7 @@ class SyntaxBuilder
 
         $fields = [];
 
-        foreach($schema as $field) {
+        foreach ($schema as $field) {
             $fields[] = $field['name'];
         }
 

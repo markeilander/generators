@@ -2,13 +2,13 @@
 
 namespace Eilander\Generators\Makes;
 
-use Illuminate\Console\AppNamespaceDetectorTrait;
 use Eilander\Generators\Contracts\Make;
 use Eilander\Generators\Migrations\NameParser;
 use Eilander\Generators\Migrations\TableParser;
-use Eilander\Generators\Traits\OptionTrait;
-use Illuminate\Filesystem\Filesystem;
 use Eilander\Generators\Stub;
+use Eilander\Generators\Traits\OptionTrait;
+use Illuminate\Console\AppNamespaceDetectorTrait;
+use Illuminate\Filesystem\Filesystem;
 
 abstract class BaseMake implements Make
 {
@@ -32,54 +32,54 @@ abstract class BaseMake implements Make
      */
     protected $options;
     /**
-     * Schema string from command
+     * Schema string from command.
      *
      * @var string
      */
     protected $schema;
     /**
-     * Set output path
+     * Set output path.
      *
      * @var string
      */
     protected $path;
     /**
-     * Set stub path
+     * Set stub path.
      *
      * @var string
      */
     protected $stubPath;
     /**
-     * replacements
+     * replacements.
      *
      * @var string
      */
     protected $replacements;
     /**
-     * replacement start string
+     * replacement start string.
      *
      * @var string
      */
     protected $replacementStart;
     /**
-     * replacement end string
+     * replacement end string.
      *
      * @var string
      */
     protected $replacementEnd;
 
     /**
-     * name of the class to be build
+     * name of the class to be build.
      *
      * @var string
      */
     protected $name;
 
-    public function __construct(array $options = array())
+    public function __construct(array $options = [])
     {
-        $this->files = new Filesystem;
+        $this->files = new Filesystem();
         $this->schema = null;
-        $this->replacements = array();
+        $this->replacements = [];
         $this->path = null;
         $this->stubPath = null;
         $this->options = $options;
@@ -88,7 +88,9 @@ abstract class BaseMake implements Make
         $this->replacementEnd = '}}';
     }
 
-    public function render(){}
+    public function render()
+    {
+    }
 
     protected function getSchema()
     {
@@ -105,8 +107,9 @@ abstract class BaseMake implements Make
     protected function getNameParser()
     {
         if (!$this->nameParser) {
-           $this->nameParser = new NameParser($this->option('name'));
+            $this->nameParser = new NameParser($this->option('name'));
         }
+
         return $this->nameParser;
     }
 
@@ -125,33 +128,36 @@ abstract class BaseMake implements Make
         )
         )->render();
     }
+
     /**
-     * Run generator
+     * Run generator.
      *
      * @return int
      */
     public function run()
     {
-        if ( ! $this->files->isDirectory($dir = dirname($this->path)))
-        {
+        if (!$this->files->isDirectory($dir = dirname($this->path))) {
             $this->files->makeDirectory($dir, 0777, true, true);
         }
+
         return $this->files->put($this->path, $this->getStub());
     }
-    /**
-     * Check if files exists
-     *
-     * @return bool
-     */
+
+     /**
+      * Check if files exists.
+      *
+      * @return bool
+      */
      public function exists()
      {
          if ($this->files->exists($this->path)) {
-            return true;
+             return true;
          }
+
          return false;
      }
 
-     /**
+    /**
      * Get template replacements.
      *
      * @return array
@@ -160,7 +166,7 @@ abstract class BaseMake implements Make
     {
         return [
             'table'     => $this->option('table'),
-            'class'     => $this->name
+            'class'     => $this->name,
         ];
     }
 

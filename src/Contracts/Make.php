@@ -1,17 +1,21 @@
-<?php namespace Eilander\Generators\Contracts;
+<?php
+
+namespace Eilander\Generators\Contracts;
+
 /**
- * Interface CriteriaInterface
- * @package Eilander\Generators\Contracts;
+ * Interface CriteriaInterface.
  */
-interface Make {
+interface Make
+{
     /**
-     * Render maker
+     * Render maker.
      *
      * @return mixed
      */
     public function run();
+
     /**
-     * Render maker
+     * Render maker.
      *
      * @return mixed
      */
