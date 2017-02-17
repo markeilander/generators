@@ -7,7 +7,6 @@ use Eilander\Generators\Migrations\NameParser;
 use Eilander\Generators\Migrations\TableParser;
 use Eilander\Generators\Stub;
 use Eilander\Generators\Traits\OptionTrait;
-use Illuminate\Console\DetectsApplicationNamespace;
 use Illuminate\Filesystem\Filesystem;
 
 abstract class BaseMake implements Make
