@@ -143,19 +143,19 @@ abstract class BaseMake implements Make
         return $this->files->put($this->path, $this->getStub());
     }
 
-     /**
-      * Check if files exists.
-      *
-      * @return bool
-      */
-     public function exists()
-     {
-         if ($this->files->exists($this->path)) {
-             return true;
-         }
+    /**
+     * Check if files exists.
+     *
+     * @return bool
+     */
+    public function exists()
+    {
+        if ($this->files->exists($this->path)) {
+            return true;
+        }
 
-         return false;
-     }
+        return false;
+    }
 
     /**
      * Get template replacements.
