@@ -81,17 +81,17 @@ class SyntaxBuilder
             $syntax = $this->wrapper('view', '/show/content.stub');
             $syntax = $this->insert($meta['var_name'])->into($syntax, 'class');
             $syntax = $this->insert(strtolower($field['name']))->into($syntax, 'field');
-            // Fields to show view
+        // Fields to show view
         } elseif ($type == 'view-edit-content') {
             $syntax = $this->wrapper('view', '/edit/content.stub');
             $syntax = $this->insert($meta['var_name'])->into($syntax, 'class');
             $syntax = $this->insert(strtolower($field['name']))->into($syntax, 'field');
-            // Fields to show view
+        // Fields to show view
         } elseif ($type == 'view-create-content') {
             $syntax = $this->wrapper('view', '/create/content.stub');
             $syntax = $this->insert($meta['var_name'])->into($syntax, 'class');
             $syntax = $this->insert(strtolower($field['name']))->into($syntax, 'field');
-            // Fields to show view
+        // Fields to show view
         } else {
             // Fields to controller
             $syntax = sprintf('$%s->%s = $request->input("%s', $meta['var_name'], $field['name'], $field['name']);
